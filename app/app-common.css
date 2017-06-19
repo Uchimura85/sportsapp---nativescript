@@ -400,3 +400,9 @@ Label.scan_status {
     font-size: 15;
     font-weight: 800;
 }
+
+.letter-center {
+    horizontal-align: center;
+    vertical-align: center;
+    text-align: center;
+}

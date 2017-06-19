@@ -50,7 +50,7 @@
       </StackLayout>
     </StackLayout>
     <RL:Ripple rippleColor="#c8c8c8" tap="{{onLoginTap}}" marginTop="22" class="my-btn" borderRadius="50%">
-      <Label text="LOG IN" horizontalAlignment="center" verticalAlignment="center"/>
+      <Label text="LOG IN" class="letter-center" textAligment="center"/>
     </RL:Ripple>
 
     <StackLayout>

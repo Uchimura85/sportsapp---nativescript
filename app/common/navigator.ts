@@ -11,11 +11,15 @@ var isAndroid: boolean = platform.device.os === platform.platformNames.android;
 function traceNavigateTo(to: string, context?: string): string {
     var eventText = "Navigate to: " + to + (context ? " (" + context + ")" : "");
     console.log("Track: " + eventText);
-    analytics.trackEvent(eventText);
+    // analytics.trackEvent(eventText);
     return to;
 }
 export function navigateToMainPage() {
-    navigateToProfilePage();
+    // navigateToProfilePage();
+    // navigateToDataPage();
+    // navigateToScan();
+    // navigateToSleep();
+    navigateToTutorial();
 }
 export function navigateToHome() {
     var topmost = frame.topmost();

@@ -39,7 +39,7 @@ export class ScanViewdModel extends observableModule.Observable {
         return this._items;
     }
     public onItemTap(args: listViewModule.ListViewEventData) {
-        var item = this.dataItems.getItem(args.itemIndex);
+        var item = this.dataItems.getItem(args.index);
     }
     public doStartScanning() {
         var _self = this;
@@ -105,12 +105,12 @@ export class ScanViewdModel extends observableModule.Observable {
         this.dataItems.forEach(dataItem => {
             dataItem.isSelect = false;
         })
-        var item = this.dataItems.getItem(args.itemIndex);
+        var item = this.dataItems.getItem(args.index);
         item.isSelect = true;
     }
 
     public itemDeselected(args: listViewModule.ListViewEventData) {
-        var item = this.dataItems.getItem(args.itemIndex);
+        var item = this.dataItems.getItem(args.index);
         item.isSelect = false;
     }
 

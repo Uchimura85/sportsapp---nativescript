@@ -220,12 +220,12 @@ export class ViewModel extends observableModule.Observable {
     }
     _currentItemIndex = -1;
     onCellSwiped(args: ListViewEventData) {
-        this._currentItemIndex = args.itemIndex;
+        this._currentItemIndex = args.index;
         console.log(this._currentItemIndex);
     }
     onItemTap(args: ListViewEventData) {
         if (this.isDeleteMode) return;
-        var CurrentItemIndex = args.itemIndex;
+        var CurrentItemIndex = args.index;
         var datasetId = this._dataItems.getItem(CurrentItemIndex).id;
         var CurrentItem = this._dataItems.getItem(CurrentItemIndex).dataType.toLocaleLowerCase();
         global.datasetId = datasetId;
