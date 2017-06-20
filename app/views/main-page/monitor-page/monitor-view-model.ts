@@ -26,7 +26,7 @@ export class MonitorViewdModel extends Observable {
     private _motionGraph: gridLayoutModule.GridLayout;
     private _calmGraph: gridLayoutModule.GridLayout;
     private _categoricalSource;
-    isGuest = false;
+
     _isZoom = false;
     _queueSize = 0;
 
@@ -69,12 +69,7 @@ export class MonitorViewdModel extends Observable {
         this.drawEcgAndHeart();
         this.drawCalmAndMotion();
         this._CalmAnalysis.start();
-        if (global.isGuest) {
-            this.isGuest = true;
-            this.doStartScanning(global.mac);
-        } else {
-            this.getDeviceUUID();
-        }
+        this.getDeviceUUID();
         //*/
     }
 
@@ -149,9 +144,8 @@ export class MonitorViewdModel extends Observable {
         if (this.isSend) {
             Toast.makeText('record start').show();
 
-            if (!global.isGuest) {
-                this._sendEcg.start(); // uplaod to cloud
-            }
+            this._sendEcg.start(); // uplaod to cloud
+
             this._CalmAnalysis.start();
         }
         else {
@@ -366,11 +360,11 @@ export class MonitorViewdModel extends Observable {
             return [];
         }
     }
-
+    mMac = "";
     public doStartScanning(_mac) {
 
         if (!_mac) return;
-        global._mac = _mac;
+        this.mMac = _mac;
         var _self = this;
         // On Android 6 we need this permission to be able to scan for peripherals in the background.
         bluetooth.hasCoarseLocationPermission().then(
@@ -487,7 +481,7 @@ export class MonitorViewdModel extends Observable {
                 //         _self.doStartScanning(global._mac);
                 //     }
                 // });
-                _self.doStartScanning(global._mac);
+                _self.doStartScanning(_self.mMac);
             }
         });
     }

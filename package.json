@@ -13,6 +13,7 @@
     "acra-telerik-analytics": "~0.0.3",
     "highlight.js": "~8.7.0",
     "import": "0.0.6",
+    "nativescript-audio": "^3.4.3",
     "nativescript-bluetooth": "^1.1.6",
     "nativescript-camera": "^3.0.0",
     "nativescript-drawingpad": "https://github.com/a0af/nativescript-p2.git",
