@@ -4,7 +4,6 @@
 
 import application = require("application");
 import frame = require("ui/frame");
-import exampleBase = require("./examples/example-base-page");
 import prof = require("./common/profiling");
 import * as trace from "trace";
 import * as analytics from "./common/analytics";

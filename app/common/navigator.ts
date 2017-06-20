@@ -17,9 +17,11 @@ function traceNavigateTo(to: string, context?: string): string {
 export function navigateToMainPage() {
     // navigateToProfilePage();
     // navigateToDataPage();
-    // navigateToScan();
+    navigateToScan();
     // navigateToSleep();
-    navigateToTutorial();
+    // navigateToTutorial();
+    // navigateToSettingPage();
+    // navigateToAbout();
 }
 export function navigateToHome() {
     var topmost = frame.topmost();
