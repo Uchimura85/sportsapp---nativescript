@@ -1,3 +1,5 @@
+npm install
+sportsapp---nativescript\node_modules\nativescript-social-login\platforms\android\AndroidManifest.xml
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 

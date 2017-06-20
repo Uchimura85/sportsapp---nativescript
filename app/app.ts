@@ -89,7 +89,7 @@ mainModule = "views/main-page/main-page";
 // mainModule = "views/main-page/profile-page/profile-page";
 // mainModule = "views/main-page/setting-page/setting-page";
 // mainModule = "views/main-page/data-page/data-monitor";
-mainModule = "views/main-page/sleep-page/sleep-page";
+// mainModule = "views/main-page/sleep-page/sleep-page";
 // mainModule = "views/main-page/monitor-page/monitor-page";
 // mainModule = "views/main-page/scan-page/scan-page";
 
