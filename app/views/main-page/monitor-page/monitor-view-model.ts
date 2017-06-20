@@ -60,9 +60,10 @@ export class MonitorViewdModel extends Observable {
             this.ecgPoints.push(1200);
         for (var i = 0; i < 50; i++)
             this.hrtPoints.push(100);
+
         if (this.isPageLoaded) setTimeout(() => {
             this._ecgGraph.setPts(this.ecgPoints);
-            this._ecgZoomGraph.setPts(this.ecgPoints);
+            // this._ecgZoomGraph.setPts(this.ecgPoints);
         }, 1000);
 
         this.drawEcgAndHeart();

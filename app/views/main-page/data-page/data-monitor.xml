@@ -30,7 +30,7 @@
     <!-- END  Side Drawer-->
     <rsd:RadSideDrawer.mainContent>
       <!-- BEGIN Page Content-->
-      <StackLayout height="fetch" class="data-content">
+      <StackLayout height="100%" class="data-content">
         <!--header and bottom bar height -> 50px, and content -> remain-->
         <GridLayout rows="50, *,50">
           <!--Header(Date & Spiner for filter BEGIN-->

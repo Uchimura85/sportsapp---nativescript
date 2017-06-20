@@ -85,6 +85,7 @@ prof.start("main-page");
 // application.mainModule = "profile-main";
 let mainModule = "";
 mainModule = "views/main-page/main-page";
+// mainModule = "views/main-page/tutorial-page/tutorial-page";
 // mainModule = "views/main-page/profile-page/profile-page";
 // mainModule = "views/main-page/setting-page/setting-page";
 // mainModule = "views/main-page/data-page/data-monitor";

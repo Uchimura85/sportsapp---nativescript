@@ -9,13 +9,13 @@
     }
   },
   "dependencies": {
-    "NativeScript-DrawingPad": "https://github.com/a0af/nativescript-p2.git",
     "a-nativescript-ecg-sleep-analysis": "https://github.com/a0af/nativescript-p1.git",
     "acra-telerik-analytics": "~0.0.3",
     "highlight.js": "~8.7.0",
     "import": "0.0.6",
     "nativescript-bluetooth": "^1.1.6",
     "nativescript-camera": "^3.0.0",
+    "nativescript-drawingpad": "https://github.com/a0af/nativescript-p2.git",
     "nativescript-exit": "^1.0.1",
     "nativescript-fresco": "~3.0.2",
     "nativescript-imagecropper": "0.0.7",
