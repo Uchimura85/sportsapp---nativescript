@@ -1,12 +1,11 @@
-<sdp:DrawerPage
+<Page
   xmlns="http://www.nativescript.org/tns.xsd"
   xmlns:RL="nativescript-ripple"
-  xmlns:sdp="nativescript-telerik-ui-pro/sidedrawer/drawerpage"
-  xmlns:rsd="nativescript-telerik-ui-pro/sidedrawer/sidedrawer"
+  xmlns:rsd="nativescript-telerik-ui-pro/sidedrawer"
   xmlns:sdc="views/side-drawer/side-drawer-content-p" loaded="onPageLoaded"
   backgroundSpanUnderStatusBar="true" class="c-page1" backgroundColor="#0F1866">
   <!-- BEGIN action bar-->
-  <sdp:DrawerPage.actionBar>
+  <Page.actionBar>
     <ActionBar automationText="ActionBar" class="action-bar">
       <NavigationButton icon="res://ic_menu_main" tap="showSlideout" automationText="SidebarMenu"/>
       <ActionBar.actionItems>
@@ -22,19 +21,18 @@
         </GridLayout>
       </ActionBar.titleView>
     </ActionBar>
-  </sdp:DrawerPage.actionBar>
+  </Page.actionBar>
   <!-- END  action bar-->
   <!--BEGIN Side Drawer-->
-  <sdp:DrawerPage.sideDrawer>
-    <rsd:RadSideDrawer id="side-drawer" drawerSize="260">
-      <rsd:RadSideDrawer.drawerContent>
-        <sdc:side-drawer-content />
-      </rsd:RadSideDrawer.drawerContent>
-    </rsd:RadSideDrawer>
-  </sdp:DrawerPage.sideDrawer>
+    
+  <rsd:RadSideDrawer id="side-drawer1" drawerSize="260">
+    <rsd:RadSideDrawer.drawerContent>
+      <sdc:side-drawer-content />
+    </rsd:RadSideDrawer.drawerContent>
+
   <!-- END  Side Drawer-->
   <!-- BEGIN Page Content-->
-
+  <rsd:RadSideDrawer.mainContent>
   <StackLayout id="profile-content">
     <StackLayout class="avatar">
       <StackLayout class="circle-wrapper">
@@ -91,4 +89,6 @@
       <Label text="Save" horizontalAlignment="center" verticalAlignment="center"/>
     </RL:Ripple>
   </StackLayout>
-</sdp:DrawerPage>
+    </rsd:RadSideDrawer.mainContent>
+    </rsd:RadSideDrawer>
+</Page>
