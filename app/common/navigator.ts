@@ -16,7 +16,8 @@ function traceNavigateTo(to: string, context?: string): string {
 }
 export function navigateToMainPage() {
     // navigateToProfilePage();
-    navigateToDataPage();
+    // navigateToDataPage();
+    navigateToMonitor();
     // navigateToScan();
     // navigateToSleep();
     // navigateToTutorial();
