@@ -203,6 +203,12 @@ DrawerPage {
     placeholder-color: #FFFFFF;
 }
 
+button {
+    outline: none;
+    border: none;
+    border-color: transparent;
+}
+
 .required-bar {
     height: 2;
     background-color: red;

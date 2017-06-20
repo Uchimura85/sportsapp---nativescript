@@ -27,25 +27,25 @@ export class ProfileModel extends Observable {
         // orientationModule.setCurrentOrientation("portrait", function () {
         //     console.log("landscape orientation set");
         // })
-        /*
-                this.page = mainPage;
-                this.name = "";
-                this.birthday = "";
-                this.gender = "";
-                this.height = 0;
-                this.weight = 0;
-        
-                this.imgUserPhoto = mainPage.getViewById<Image>("userPhoto");
-                this.getUserInfo();
-                if (takePhoto == 1) {
-                    this.imgUserPhoto.src = imageBase64;
-                    takePhoto = 0;
-                }
-                if (takePhoto == 2) {
-                    this.imgUserPhoto.src = imageUrl;
-                    takePhoto = 0;
-                }
-                //*/
+
+        this.page = mainPage;
+        this.name = "";
+        this.birthday = "";
+        this.gender = "";
+        this.height = 0;
+        this.weight = 0;
+
+        this.imgUserPhoto = mainPage.getViewById<Image>("userPhoto");
+        this.getUserInfo();
+        if (takePhoto == 1) {
+            this.imgUserPhoto.src = imageBase64;
+            takePhoto = 0;
+        }
+        if (takePhoto == 2) {
+            this.imgUserPhoto.src = imageUrl;
+            takePhoto = 0;
+        }
+        //*/
     }
     onTakePhotoTap() {
         let user = AppSetting.getUserData();
