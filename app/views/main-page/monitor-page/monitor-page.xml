@@ -67,7 +67,7 @@
               <StackLayout class="hr-line"/>
               <Label text="Heart Rate" fontSize="14"/>
               <GridLayout columns="*,10,90">
-                <DrawingPad:DrawingPad col="0" marginRight="15" id="hrtGraph" margin="0" height="100%" penColor="3" penWidth="{{ _hrtPoints }}"/>
+                <DrawingPad:DrawingPad col="0" marginRight="15" id="hrtGraph" margin="0" height="100%" penColor="3" penWidth="{{ _hrtPoints }}" backgroundColor="#FAFAFA"/>
                 <StackLayout col="2" class="hrt-mark-group">
                   <StackLayout orientation="horizontal">
                     <Label text="&#xf056;" class="icon mark-z"/>

@@ -56,6 +56,7 @@ export class MonitorViewdModel extends Observable {
         this._ecgZoomGraph = <DrawingPad>mainPage.getViewById('ecgGraphFull');
 
         this._hrtGraph = <DrawingPad>mainPage.getViewById('hrtGraph');
+        this._hrtGraph.setGraphType(3);
         this._calmGraphLayout = <gridLayoutModule.GridLayout>mainPage.getViewById('calmGraphLayout');
         this._calmGraph = <DrawingPad>mainPage.getViewById('calmGraph');
         this._calmGraph.setGraphType(8);

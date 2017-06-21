@@ -37,9 +37,9 @@
         </StackLayout>
         <Label text="Privacy Option:" class="font-weight-bold" fontSize="17" marginTop="5"/>
         <StackLayout orientation="horizontal" tap="{{onShowPasswordTapped}}" marginTop="5">
-          <!--<Image src="{{ isAllow ? 'res://checkbox_checked' : 'res://checkbox_unchecked' }}" cssClass="checkbox" />-->
+          <Image src="{{ isAllow ? 'res://checkbox_checked' : 'res://checkbox_unchecked' }}" class="checkbox" />
           <StackLayout fontSize="17">
-            <Label text="Allow my data to be anonymised and used" cssClass="field-switch-title" />
+            <Label text="Allow my data to be anonymised and used" class="field-switch-title" />
             <StackLayout orientation="horizontal">
               <Label text="for health research."/>
               <Label text=" Find out more" class="moreLink" />
