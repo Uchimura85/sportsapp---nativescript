@@ -23,8 +23,11 @@ export class MonitorViewdModel extends Observable {
     private _ecgZoomGraph: DrawingPad;
 
     private _hrtGraph: DrawingPad;
-    private _motionGraph: gridLayoutModule.GridLayout;
-    private _calmGraph: gridLayoutModule.GridLayout;
+    private _motionGraphLayout: gridLayoutModule.GridLayout;
+    private _motionGraph: DrawingPad;
+
+    private _calmGraphLayout: gridLayoutModule.GridLayout;
+    private _calmGraph: DrawingPad;
     private _categoricalSource;
 
     _isZoom = false;
@@ -53,8 +56,12 @@ export class MonitorViewdModel extends Observable {
         this._ecgZoomGraph = <DrawingPad>mainPage.getViewById('ecgGraphFull');
 
         this._hrtGraph = <DrawingPad>mainPage.getViewById('hrtGraph');
-        this._calmGraph = <gridLayoutModule.GridLayout>mainPage.getViewById('calmGraph');
-        this._motionGraph = <gridLayoutModule.GridLayout>mainPage.getViewById('motionGraph');
+        this._calmGraphLayout = <gridLayoutModule.GridLayout>mainPage.getViewById('calmGraphLayout');
+        this._calmGraph = <DrawingPad>mainPage.getViewById('calmGraph');
+        this._calmGraph.setGraphType(8);
+        this._motionGraphLayout = <gridLayoutModule.GridLayout>mainPage.getViewById('motionGraphLayout');
+        this._motionGraph = <DrawingPad>mainPage.getViewById('motionGraph');
+        this._motionGraph.setGraphType(7);
 
         for (var i = 0; i < 400; i++)
             this.ecgPoints.push(1200);
@@ -82,14 +89,18 @@ export class MonitorViewdModel extends Observable {
         var calmV = this._CalmAnalysis.getCalmValue();
         this.calmInt = parseInt("" + calmV);
         var float = Math.round((calmV - this.calmInt) * 100);
-        let radius = this._calmGraph.getMeasuredWidth();
+        let radius = this._calmGraphLayout.getMeasuredWidth();
         var dataM = [radius / 2.0, 13, 134, 30, 30];
         //                    calm Value(0~360), Number
         var arc = calmV * 360 / 100;
         var dataC = [radius / 2, 13, arc, calmV, float];
 
-        this.set('_motionPoints', dataM);
-        this.set('_calmPoints', dataC);
+        // this.set('_motionPoints', dataM);
+        this._motionGraph.setPts(dataM);
+
+        // this.set('_calmPoints', dataC);
+        this._calmGraph.setPts(dataC);
+
         this.set('test', this.calmInt);
         if (this.isPageLoaded) setTimeout(() => this.drawCalmAndMotion(), 1000);
     }
