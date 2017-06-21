@@ -1,4 +1,3 @@
-var tnsfx = require('nativescript-effects');
 import { TNSPlayer } from 'nativescript-audio';
 import dialogs = require("ui/dialogs");
 import bluetooth = require("nativescript-bluetooth");
