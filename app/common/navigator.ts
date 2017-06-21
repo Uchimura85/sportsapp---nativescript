@@ -73,11 +73,11 @@ export function navigateToDataPage() {
 }
 
 
-export function navigateToSessionEcg() {
-    commonNavigateWithClear("views/main-page/data-page/session-ecg-page/session-ecg-page");
+export function navigateToSessionEcg(datasetId: string) {
+    commonNavigateWithClear("views/main-page/data-page/session-ecg-page/session-ecg-page", false, datasetId);
 }
-export function navigateToSessionSleep() {
-    commonNavigateWithClear("views/main-page/data-page/session-sleep-page/session-sleep-page");
+export function navigateToSessionSleep(datasetId: string) {
+    commonNavigateWithClear("views/main-page/data-page/session-sleep-page/session-sleep-page", false, datasetId);
 }
 export function navigateToProfilePage() {
     commonNavigateWithClear("views/main-page/profile-page/profile-page", true);
@@ -109,7 +109,7 @@ export function openLink(view: any) {
         }
     }
 }
-function commonNavigateWithClear(page: string, _flagClearHistory?: boolean) {
+function commonNavigateWithClear(page: string, _flagClearHistory?: boolean, _datasetId?: string) {
     _flagClearHistory = _flagClearHistory ? _flagClearHistory : false;
     var topmost = frame.topmost();
     if (topmost.currentEntry.moduleName !== page) {
@@ -119,6 +119,9 @@ function commonNavigateWithClear(page: string, _flagClearHistory?: boolean) {
                 name: 'fade',
                 duration: 380,
                 curve: "easeIn"
+            },
+            context: {
+                datasetId: _datasetId
             }
         });
     }

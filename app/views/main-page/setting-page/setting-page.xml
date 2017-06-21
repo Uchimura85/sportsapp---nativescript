@@ -2,8 +2,7 @@
   xmlns="http://www.nativescript.org/tns.xsd" 
   xmlns:RL="nativescript-ripple" 
   xmlns:rsd="nativescript-telerik-ui-pro/sidedrawer" 
-  xmlns:sdc="views/side-drawer/side-drawer-content-st" loaded="onPageLoaded" 
-  xmlns:f="nativescript-fresco" backgroundSpanUnderStatusBar="true" class="c-page1">
+  xmlns:sdc="views/side-drawer/side-drawer-content-st" loaded="onPageLoaded" backgroundSpanUnderStatusBar="true" class="c-page1">
   <!-- BEGIN action bar-->
   <Page.actionBar>
     <ActionBar automationText="ActionBar" class="action-bar">

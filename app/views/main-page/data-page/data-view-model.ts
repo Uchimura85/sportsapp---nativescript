@@ -26,7 +26,7 @@ export class ViewModel extends observableModule.Observable {
         });
         this._dataItems = new ObservableArray<DataItem>();
         this.set('menuEditText', 'Edit    ')
-        // this.initDataItemsForTest();
+        this.initDataItemsForTest();
         this.getDatas();
         // let _data = DataService.getData();
         // if (_data) {
@@ -228,10 +228,9 @@ export class ViewModel extends observableModule.Observable {
         var CurrentItemIndex = args.index;
         var datasetId = this._dataItems.getItem(CurrentItemIndex).id;
         var CurrentItem = this._dataItems.getItem(CurrentItemIndex).dataType.toLocaleLowerCase();
-        global.datasetId = datasetId;
         switch (CurrentItem) {
-            case 'exercise': navigator.navigateToSessionEcg(); break;
-            case 'sleep': navigator.navigateToSessionSleep(); break;
+            case 'exercise': navigator.navigateToSessionEcg(datasetId); break;
+            case 'sleep': navigator.navigateToSessionSleep(datasetId); break;
         }
     }
 
