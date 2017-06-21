@@ -12,21 +12,22 @@ import { SendEcg } from '../send-ecg';
 import { CalmAnalysis } from '../calm-analysis';
 
 import * as  orientationModule from "nativescript-screen-orientation";
-import * as gridLayoutModule from 'ui/layouts/grid-layout';
+
+import { ItemSpec, GridLayout } from 'ui/layouts/grid-layout';
 import phoneMac = require("../../../common/phone");
 
 import { DeviceModel } from '../../../model/device-model'
 import { AppSetting } from '../../../common/app-setting';
 import { DataItem } from './dataitem';
 export class MonitorViewdModel extends Observable {
+    private _mainGridlayout: GridLayout;
     private _ecgGraph: DrawingPad;
-    private _ecgZoomGraph: DrawingPad;
 
     private _hrtGraph: DrawingPad;
-    private _motionGraphLayout: gridLayoutModule.GridLayout;
+    private _motionGraphLayout: GridLayout;
     private _motionGraph: DrawingPad;
 
-    private _calmGraphLayout: gridLayoutModule.GridLayout;
+    private _calmGraphLayout: GridLayout;
     private _calmGraph: DrawingPad;
     private _categoricalSource;
 
@@ -40,10 +41,10 @@ export class MonitorViewdModel extends Observable {
     _sendEcg: SendEcg;
     _CalmAnalysis: CalmAnalysis;
     isPageLoaded = true;
-
-    constructor(mainPage: Page) {
+    mainPage: Page;
+    constructor(_mainPage: Page) {
         super();
-
+        this.mainPage = _mainPage;
         this._sendEcg = new SendEcg();
 
         this._CalmAnalysis = new CalmAnalysis();
@@ -51,17 +52,17 @@ export class MonitorViewdModel extends Observable {
         // orientationModule.setCurrentOrientation("portrait", function () {
         //     console.log("landscape orientation set");
         // });
+        this._mainGridlayout = <GridLayout>_mainPage.getViewById('mainGridlayout');
 
-        this._ecgGraph = <DrawingPad>mainPage.getViewById('ecgGraph');
-        this._ecgZoomGraph = <DrawingPad>mainPage.getViewById('ecgGraphFull');
+        this._ecgGraph = <DrawingPad>_mainPage.getViewById('ecgGraph');
 
-        this._hrtGraph = <DrawingPad>mainPage.getViewById('hrtGraph');
+        this._hrtGraph = <DrawingPad>_mainPage.getViewById('hrtGraph');
         this._hrtGraph.setGraphType(3);
-        this._calmGraphLayout = <gridLayoutModule.GridLayout>mainPage.getViewById('calmGraphLayout');
-        this._calmGraph = <DrawingPad>mainPage.getViewById('calmGraph');
+        this._calmGraphLayout = <GridLayout>_mainPage.getViewById('calmGraphLayout');
+        this._calmGraph = <DrawingPad>_mainPage.getViewById('calmGraph');
         this._calmGraph.setGraphType(8);
-        this._motionGraphLayout = <gridLayoutModule.GridLayout>mainPage.getViewById('motionGraphLayout');
-        this._motionGraph = <DrawingPad>mainPage.getViewById('motionGraph');
+        this._motionGraphLayout = <GridLayout>_mainPage.getViewById('motionGraphLayout');
+        this._motionGraph = <DrawingPad>_mainPage.getViewById('motionGraph');
         this._motionGraph.setGraphType(7);
 
         for (var i = 0; i < 400; i++)
@@ -128,16 +129,24 @@ export class MonitorViewdModel extends Observable {
     }
     public onZoomTap() {
         // navigator.navigateToMonitorFullDrawer();
-        // this.isZoom = !this.isZoom;
-        // if (this.isZoom) {
-        //     orientationModule.setCurrentOrientation("landscape", function () {
-        //         console.log("landscape orientation set");
-        //     });
-        // } else {
-        //     orientationModule.setCurrentOrientation("portrait", function () {
-        //         console.log("landscape orientation set");
-        //     });
-        // }
+        this.isZoom = !this.isZoom;
+        if (this.isZoom) {
+            // orientationModule.setCurrentOrientation("landscape", function () {
+            //     console.log("landscape orientation set");
+            // });
+
+            let testView: GridLayout;
+            testView = <GridLayout>this.mainPage.getViewById('first');
+            // this._mainGridlayout.removeChild(testView);
+            // this._mainGridlayout.getRows().forEach((item: gridLayoutModule.ItemSpec, index: number) => {
+            //     console.log('item', item, 'index', index);
+            //     this._mainGridlayout.removeRow(item);
+            // });
+        } else {
+            // orientationModule.setCurrentOrientation("portrait", function () {
+            //     console.log("landscape orientation set");
+            // });
+        }
     }
 
     isSend = false;
@@ -187,7 +196,9 @@ export class MonitorViewdModel extends Observable {
                 this.fetchCount = Math.floor(this.averageHRCount() / this.averageDrawingCount());
 
             // console.log("avgDrawTime", "DataFreq: " + this.averageHRCount() + " FSP: " + this.averageDrawingCount() + " fetchCount: " + this.fetchCount + " queue: " + this.queue.length);
-            this.set("debug", "DataFreq: " + this.averageHRCount() + " FPS: " + this.averageDrawingCount() + " fetchCount: " + this.fetchCount + " queue: " + this.queue.length);
+            let debugString = "DataFreq: " + this.averageHRCount() + " FPS: " + this.averageDrawingCount() + " fetchCount: " + this.fetchCount + " queue: " + this.queue.length;
+            this.set("debug", debugString);
+            // console.log(debugString);
             if (this.firstDRSize < this.drMAX) this.firstDRSize++;
             this.drQueue[this.drIndex] = this.drawCount;
             this.drIndex++;
@@ -429,7 +440,8 @@ export class MonitorViewdModel extends Observable {
         var str = JSON.stringify(this._arrDevice.getItem(index));
         var device: any = this._arrDevice.getItem(index);
         var _self = this;
-        console.log("deviceUUID", device.UUID)
+        console.log("deviceUUID", device.UUID);
+        bluetooth.setCharacteristicLogging(false);
         bluetooth.connect({
             UUID: device.UUID,
             // NOTE: we could just use the promise as this cb is only invoked once

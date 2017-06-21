@@ -32,9 +32,9 @@
     <rsd:RadSideDrawer.mainContent>
       <StackLayout class="monitor-content">
         <StackLayout class="main">
-          <GridLayout class="all" rows="auto,*,*,*" height="100%">
+          <GridLayout class="all" rows="auto,*,*,*" height="100%" id="mainGridlayout">
             <!--BEGIN simple title-->
-            <GridLayout row="0">
+            <GridLayout row="0" id="first">
               <Label text="Electrocardiograph" fontSize="14" margin="10 0"/>
               <StackLayout orientation="horizontal" horizontalAlignment="right">
                 <Label text="Device Connect" margin="10 0"/>
@@ -121,7 +121,7 @@
             </StackLayout>
             <!--END Motion & Calmness Chart-->
           </GridLayout>
-          <DrawingPad:DrawingPad tap="{{onZoomTap}}" height="{{isZoom?  '300':0}}" backgroundColor="#F7F7F7" id="ecgGraphFull" margin="10" marginBottom="0" penColor="4" penWidth="{{ _ecgPoints }}"/>
+          <!--<DrawingPad:DrawingPad tap="{{onZoomTap}}" height="{{isZoom?  '300':0}}" backgroundColor="#F7F7F7" id="ecgGraphFull" margin="10" marginBottom="0" penColor="4" penWidth="{{ _ecgPoints }}"/>-->
         </StackLayout>
       </StackLayout>
     </rsd:RadSideDrawer.mainContent>

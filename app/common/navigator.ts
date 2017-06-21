@@ -84,9 +84,8 @@ export function navigateToProfilePage() {
 }
 
 export function navigateToSettingPage() {
-    commonNavigateWithClear("views/main-page/setting-page/setting-page"), true;
+    commonNavigateWithClear("views/main-page/setting-page/setting-page", true);
 }
-
 
 export function navigateBack() {
     frame.goBack();
